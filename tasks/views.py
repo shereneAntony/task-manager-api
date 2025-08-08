@@ -68,7 +68,7 @@ class TaskDetails(RetrieveUpdateDestroyAPIView):
 
     def perform_update(self, serializer):
         old_task = self.get_object()
-        old_status = old_task.status  # ✅ store old status before save
+        old_status = old_task.status  
         task = serializer.save()
 
         if task.status != old_status and task.assigned_to and task.assigned_to.email:
